@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>النتيجة</title>
+<style>
+body{
+    background:#222831;
+    color:white;
+    font-family:Tahoma;
+    text-align:center;
+}
+.box{
+    width:50%;
+    margin:150px auto;
+    background:#393e46;
+    padding:40px;
+    border-radius:20px;
+}
+a{
+    padding:15px 30px;
+    background:#00adb5;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+}
+</style>
+</head>
+<body>
+
+<div class="box">
+    <h1>انتهى الاختبار</h1>
+    <p>درجتك: {{ score }} / {{ total }}</p>
+    <a href="/print">طباعة وتصحيح الاختبار</a>
+</div>
+
+</body>
+</html>
