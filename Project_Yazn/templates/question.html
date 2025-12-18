@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>سؤال</title>
+<style>
+body{
+    background:#1b262c;
+    color:white;
+    font-family:Tahoma;
+    text-align:center;
+}
+.box{
+    width:60%;
+    margin:100px auto;
+    background:#0f4c75;
+    padding:40px;
+    border-radius:20px;
+}
+button{
+    padding:15px 30px;
+    font-size:18px;
+    margin:20px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+.true{background:#00e676}
+.false{background:#ff5252}
+#timer{font-size:22px;color:#ffeb3b;margin-top:20px}
+</style>
+</head>
+<body>
+
+<div id="timer"></div>
+
+<div class="box">
+    <h2>السؤال {{ number }} / {{ total }}</h2>
+    <p>{{ question }}</p>
+
+    <form method="post">
+        <button class="true" name="answer" value="true">صح</button>
+        <button class="false" name="answer" value="false">خطأ</button>
+    </form>
+</div>
+
+<script>
+let time = {{ remaining }};
+setInterval(() => {
+    let m = Math.floor(time / 60);
+    let s = time % 60;
+    document.getElementById("timer").innerHTML =
+        "الوقت المتبقي: " + m + ":" + (s<10?"0":"") + s;
+    time--;
+}, 1000);
+</script>
+
+</body>
+</html>

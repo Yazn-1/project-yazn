@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>تصحيح</title>
+<style>
+body{font-family:Tahoma}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #000;padding:8px;text-align:center}
+.correct{color:green}
+.wrong{color:red}
+</style>
+</head>
+<body onload="window.print()">
+
+<h2>تصحيح اختبار تقنية الشبكات</h2>
+<p>الدرجة: {{ score }} / {{ total }}</p>
+
+<table>
+<tr>
+    <th>السؤال</th>
+    <th>إجابتك</th>
+    <th>الإجابة الصحيحة</th>
+</tr>
+
+{% for a in answers %}
+<tr>
+    <td>{{ a.question }}</td>
+    <td class="{{ 'correct' if a.user==a.correct else 'wrong' }}">
+        {% if a.user == True %}صح{% else %}خطأ{% endif %}
+    </td>
+    <td>{% if a.correct == True %}صح{% else %}خطأ{% endif %}</td>
+</tr>
+{% endfor %}
+
+</table>
+
+</body>
+</html>
